@@ -93,6 +93,7 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+    
   }
 
   _getPosition() {
@@ -282,6 +283,7 @@ class App {
     if (!this.#map) return;
 
     const workoutEl = e.target.closest('.workout');
+    
 
     if (!workoutEl) return;
 

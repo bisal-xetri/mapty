@@ -1,2 +1,2 @@
-// const firstname="bishal";
-// console.log(month)
+const firstName = 'Jonas';
+console.log(months);
