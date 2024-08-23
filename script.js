@@ -93,7 +93,6 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
-    
   }
 
   _getPosition() {
@@ -136,8 +135,11 @@ class App {
 
   _hideForm() {
     // Empty inputs
-    inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value =
-      '';
+    inputDistance.value =
+      inputDuration.value =
+      inputCadence.value =
+      inputElevation.value =
+        '';
 
     form.style.display = 'none';
     form.classList.add('hidden');
@@ -283,7 +285,6 @@ class App {
     if (!this.#map) return;
 
     const workoutEl = e.target.closest('.workout');
-    
 
     if (!workoutEl) return;
 
@@ -301,7 +302,6 @@ class App {
     // using the public interface
     // workout.click();
   }
-
   _setLocalStorage() {
     localStorage.setItem('workouts', JSON.stringify(this.#workouts));
   }
@@ -309,19 +309,19 @@ class App {
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
 
-    if (!data) return;
-
+    if (!data) {
+      return;
+    }
     this.#workouts = data;
-
     this.#workouts.forEach(work => {
       this._renderWorkout(work);
     });
   }
-
-  reset() {
+  reset(){
     localStorage.removeItem('workouts');
     location.reload();
   }
 }
 
 const app = new App();
+
